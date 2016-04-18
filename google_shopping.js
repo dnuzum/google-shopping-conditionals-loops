@@ -33,7 +33,7 @@ var backOrder = [];
 for (var i = 0; i < (data["items"].length); i++) {
 	for (var b = 0; b < data["items"][i]["product"]["inventories"].length; b++) {
 		if ((data["items"][i]["product"]["inventories"][b]["availability"]) === "backorder") {
-		backOrder.push("Item " + [i] + " " + product + " is on backorder");
+		backOrder.push("Item " + i + " " + data["items"][i]["product"]["title"] + " is on backorder");
 		}
 	}
 }
@@ -46,7 +46,7 @@ console.log("---");
 var multImages = [];
 for (var i = 0; i < data["items"].length; i++) {
 	if (data["items"][i]["product"]["images"].length > 1) {
-		multImages.push("Item " + i + [" "] + product + " has multiple images.");
+		multImages.push("Item " + i + " " + data["items"][i]["product"]["title"] + " has multiple images.");
 	}
 }
 console.log("---")
@@ -58,8 +58,8 @@ console.log("---")
 */
 var canonItems = [];
 for (var i = 0; i < data["items"].length; i++) {
-	if (data["items"][i]["product"]["brand"] === ("Canon" || "canon")) {
-		canonItems.push("Item " + i + [" "] + product + " is a Canon product.");
+	if (data["items"][i]["product"]["brand"].toLowerCase() === "canon") {
+		canonItems.push("Item " + i + " " + data["items"][i]["product"]["title"] + " is a Canon product.");
 	}
 }
 console.log("---");
@@ -72,7 +72,7 @@ console.log("---");
 var ebayCanon = []
 for (var i = 0; i < data["items"].length; i++) {
 	if ((data["items"][i]["product"]["author"]["name"].includes("eBay")) && (data["items"][i]["product"]["brand"].includes("Canon" || "canon") === true)) {
-		ebayCanon.push("Item " + i + [" "] + product + " is a Canon item on eBay.")
+		ebayCanon.push("Item " + i + " " + data["items"][i]["product"]["title"] + " is a Canon item on eBay.")
 	}
 }
 console.log("---");
